@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="/base :: MetaLinks">...</th:block>
+</head>
+<body>
+<th:block th:replace="/base :: navbar">...</th:block>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2 align="center">[[${message.title}]]</h2><br/><br/>
+        <p align="center" style="font-size: x-large">[[${message.content}]]</p>
+        <p style="float: left"><b>Posted By:</b> [[${message.postedBy}]]         <b>Date Posted:</b> [[${message.datePosted}]] </p><br/><br/>
+            <div th:align="center">
+            <a  class="btn btn-primary" role="button" th:href="@{/update/{id} (id=${message.id})}">Update This Post</a>
+            <a  class="btn btn-danger" role="button" th:href="@{/delete/{id} (id=${message.id})}">Delete This Post</a>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>

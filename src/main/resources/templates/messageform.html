@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="/base :: MetaLinks">...</th:block>
+</head>
+<body>
+<th:block th:replace="/base :: navbar">...</th:block>
+<div class="container">
+    <div class="jumbotron">
+<form action="#" th:action="@{/process}" th:object="${message}" method="post" id="inputForm">
+        <input type="hidden" th:field="*{id}"/>
+
+   Title: <input type="text" th:field="*{title}">
+        <span th:if="${#fields.hasErrors('title')}"
+              th:errors="*{title}"></span><br/>
+
+    <div class="form-group">
+   Content: <textarea class="form-control" id="contentForm" rows="3" th:field="*{content}" />
+        <span th:if="${#fields.hasErrors('content')}"
+              th:errors="*{content}"></span><br/>
+    </div>
+   Date Posted: <input type="date" class="form-control" id="datePosted" width="300px"
+                       name="datePosted " placeholder="Enter Date Posted (mm-day-yyyy)" th:field="*{datePosted}">
+        <span th:if="${#fields.hasErrors('datePosted')}"
+              th:errors="*{datePosted}"></span><br/>
+   Posted by: <input type="text" th:field="*{postedBy}">
+        <span th:if="${#fields.hasErrors('postedBy')}"
+              th:errors="*{postedBy}"></span><br/>
+
+    <input type="submit" value="Post">
+
+
+</form>
+    </div>
+</div>
+<th:block th:replace="/base :: bootstrap">...</th:block>
+</body>
+</html>
