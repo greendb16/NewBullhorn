@@ -23,7 +23,7 @@ public class HomeController {
     @Autowired
     CloudinaryConfig cloudc;
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String showAll(Model model){
         model.addAttribute("messages", repository.findAll());
         return "list";
