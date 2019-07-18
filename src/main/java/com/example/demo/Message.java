@@ -32,6 +32,8 @@ public class Message {
     @Size(min=2, max=15)
     private String postedBy;
 
+    private String pic;
+
     public long getId() {
         return id;
     }
@@ -70,5 +72,13 @@ public class Message {
 
     public void setPostedBy(String postedBy) {
         this.postedBy = postedBy;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }

@@ -12,9 +12,17 @@
 
 <br/><br/>
 <div class="container" th:each="message : ${messages}">
-    <div class="jumbotron">
-        <h3 style="float: left">[[${message.title}]]</h3><br/><br/>
-        <p>[[${message.content}]]</p><br/>
+    <div class="jumbotron" style="size: inherit">
+        <h3 style="float: left">[[${message.title}]]</h3>
+        <div th:if="${message.pic}" !="null">
+            <img th:src="${message.pic}" alt="Post Pic" style="float: right" width="200px" height="200px" />
+
+        </div>
+        <br/><br/>
+        <p>[[${message.content}]]</p>
+
+
+        <br/>
         <p><b>Posted By:</b> [[${message.postedBy}]]  <b>Date Posted:</b> [[${message.datePosted}]] </p>
         <a class="btn btn-primary" role="button" th:href="@{/detail/{id} (id=${message.id})}">Detail</a>
         <a class="btn btn-primary" role="button" th:href="@{/update/{id} (id=${message.id})}">Update</a>

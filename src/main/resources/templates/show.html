@@ -4,14 +4,53 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <th:block th:replace="/base :: MetaLinks">...</th:block>
+    <style>
+        body, html {
+            background-image: url("https://res.cloudinary.com/dv2nrlkn5/image/upload/v1563463585/Suomi-Seuran-uutiskirje-e1560326459204_llz6jx.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .topnav a {
+            float: none;
+            display: block;
+            padding: 8px;
+            /*background-color: black;*/
+            overflow: hidden;
+            text-align: center;}
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;}
+
+        li {
+            float: none;}
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;}
+
+    </style>
 </head>
 <body>
 <th:block th:replace="/base :: navbar">...</th:block>
-
+<br/><br/><br/>
 <div class="container">
     <div class="jumbotron">
         <h2 align="center">[[${message.title}]]</h2><br/><br/>
-        <p align="center" style="font-size: x-large">[[${message.content}]]</p>
+        <p align="center" style="font-size: x-large">[[${message.content}]]</p><br/>
+        <div th:if="${message.pic}" !="null">
+            <img th:src="${message.pic}" alt="Post Pic"  id="showPic"  width="200px" height="200px"  />
+
+        </div>
+        <br/><br/>
         <p style="float: left"><b>Posted By:</b> [[${message.postedBy}]]         <b>Date Posted:</b> [[${message.datePosted}]] </p><br/><br/>
             <div th:align="center">
             <a  class="btn btn-primary" role="button" th:href="@{/update/{id} (id=${message.id})}">Update This Post</a>

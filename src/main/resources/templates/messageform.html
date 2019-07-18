@@ -11,7 +11,7 @@
 <br/><br/><br/>
 <div class="container">
     <div class="jumbotron">
-<form action="#" th:action="@{/process}" th:object="${message}" method="post" id="inputForm">
+<form action="#" th:action="@{/process}" th:object="${message}" method="post" enctype="multipart/form-data" id="inputForm">
         <input type="hidden" th:field="*{id}"/>
 
    Title: <input type="text" th:field="*{title}">
@@ -23,15 +23,23 @@
         <span th:if="${#fields.hasErrors('content')}"
               th:errors="*{content}"></span><br/>
     </div>
+
+
    Date Posted: <input type="date" class="form-control" id="datePosted"
                        name="datePosted " placeholder="Enter Date Posted (mm-day-yyyy)" th:field="*{datePosted}">
         <span th:if="${#fields.hasErrors('datePosted')}"
               th:errors="*{datePosted}"></span><br/>
+
+
    Posted by: <input type="text" th:field="*{postedBy}">
         <span th:if="${#fields.hasErrors('postedBy')}"
-              th:errors="*{postedBy}"></span>
+              th:errors="*{postedBy}"></span><br>
+
+
     <div class="form-group">
-    Add a Pic: <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    Add a Pic: <input type="file" class="form-control-file" name="file"   id="exampleFormControlFile1">
+        <span th:if="${#fields.hasErrors('pic')}"
+              th:errors="*{pic}"></span>
     </div>
     <input type="submit" value="Post">
 

@@ -1,20 +1,27 @@
 package com.example.demo;
 
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 @Controller
 public class HomeController {
 
     @Autowired
     MessageRepository repository;
+
+    @Autowired
+    CloudinaryConfig cloudc;
 
     @GetMapping("/")
     public String showAll(Model model){
@@ -29,7 +36,23 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String processMessageForm(@Valid  Message message, BindingResult result, @RequestParam("datePosted") String datePosted){
+    public String processMessageForm(@Valid  Message message, BindingResult result, @RequestParam("datePosted") String datePosted,
+                                     @RequestParam("file")MultipartFile file){
+        if (file.isEmpty()){
+            message.setPic(null);
+//            return "messageform";
+        }
+        if(!file.isEmpty()){
+            try{
+            Map uploadResult = cloudc.upload(file.getBytes(),
+                    ObjectUtils.asMap("Resourcetype", "auto"));
+            message.setPic(uploadResult.get("url").toString());
+            repository.save(message);
+        }catch (IOException e){
+            e.printStackTrace();
+            return "messageform";
+        }
+        }
         if(result.hasErrors()){
             return "messageform";
         }
