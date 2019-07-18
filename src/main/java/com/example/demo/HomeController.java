@@ -43,9 +43,9 @@ public class HomeController {
         }
 
         if(!file.isEmpty()){
-            try{
-            Map uploadResult = cloudc.upload(file.getBytes(),
-                    ObjectUtils.asMap("Resourcetype", "auto"));
+                    try{
+                        Map uploadResult = cloudc.upload(file.getBytes(),
+                                ObjectUtils.asMap("Resourcetype", "auto"));
             message.setPic(uploadResult.get("url").toString());
             repository.save(message);
         }catch (IOException e){
