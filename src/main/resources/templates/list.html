@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <th:block th:replace="/base :: MetaLinks">...</th:block>
+    <th:block th:replace="base :: MetaLinks">...</th:block>
 
 
 </head>
@@ -42,7 +42,7 @@
 
 </style>
 <body>
-<th:block th:replace="/base :: navbar">...</th:block>
+<th:block th:replace="base :: navbar">...</th:block>
 
 <br/><br/>
 <div class="container" th:each="message : ${messages}">
@@ -63,6 +63,6 @@
         <a class="btn btn-danger" role="button" th:href="@{/delete/{id} (id=${message.id})}">Delete</a>
     </div>
 </div>
-<th:block th:replace="/base :: bootstrap">...</th:block>
+<th:block th:replace="base :: bootstrap">...</th:block>
 </body>
 </html>

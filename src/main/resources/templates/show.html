@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <th:block th:replace="/base :: MetaLinks">...</th:block>
+    <th:block th:replace="base :: MetaLinks">...</th:block>
     <style>
         body, html {
             background-image: url("https://res.cloudinary.com/dv2nrlkn5/image/upload/v1563463585/Suomi-Seuran-uutiskirje-e1560326459204_llz6jx.jpg");
@@ -40,7 +40,7 @@
     </style>
 </head>
 <body>
-<th:block th:replace="/base :: navbar">...</th:block>
+<th:block th:replace="base :: navbar">...</th:block>
 <br/><br/><br/>
 <div class="container">
     <div class="jumbotron">
@@ -58,6 +58,6 @@
             </div>
     </div>
 </div>
-
+<th:block th:replace="base :: bootstrap">...</th:block>
 </body>
 </html>
