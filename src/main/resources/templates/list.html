@@ -5,17 +5,12 @@
     <title>Title</title>
     <th:block th:replace="/base :: MetaLinks">...</th:block>
 
-    <style>
-        body{
-            background-image: url("https://res.cloudinary.com/dv2nrlkn5/image/upload/v1563463585/Suomi-Seuran-uutiskirje-e1560326459204_llz6jx.jpg;");
-            background-size: cover;
-            background-attachment: fixed;
-        }
-    </style>
+
 </head>
 <body>
 <th:block th:replace="/base :: navbar">...</th:block>
 
+<br/><br/>
 <div class="container" th:each="message : ${messages}">
     <div class="jumbotron">
         <h3 style="float: left">[[${message.title}]]</h3><br/><br/>

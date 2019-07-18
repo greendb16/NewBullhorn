@@ -6,26 +6,61 @@
     <th:block th:fragment="MetaLinks">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-        <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+        <style>
+            body, html {
+                background-image: url("https://res.cloudinary.com/dv2nrlkn5/image/upload/v1563463585/Suomi-Seuran-uutiskirje-e1560326459204_llz6jx.jpg");
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .topnav a {
+                float: none;
+                display: block;
+                padding: 8px;
+                /*background-color: black;*/
+                overflow: hidden;
+                text-align: center;}
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;}
+
+            li {
+                float: none;}
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;}
+
+            /*.topnav-centered a {*/
+                /*float: none;*/
+                /*position: absolute;*/
+                /*top: 50%;*/
+                /*left: 50%;*/
+                /*transform: translate(-50%, -50%);*/
+            /*}*/
+
+        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </th:block>
 </head>
+
+
 <body>
 <th:block th:fragment="navbar">
-    <style>
-        .navbar a {
-            display: block;
-            padding: 8px;
-            background-color: black;
-            overflow: visible;
-            text-align: center;
-        }
-    </style>
-<div class="navbar">
-    <div th:align="center">
-    <a href="/add">New Post</a>
-    <a href="/">All Posts</a>
+    <div class="topnav">
+        <div class="topnav-centered" id="myNav">
+            <ul>
+            <li><a href="/add" type = "button" class="btn btn-warning btn-large">New Post</a></li>
+            <li><a href="/" type = "button" class="btn btn-success btn-large">All Posts</a></li>
+            </ul>
+        </div>
     </div>
-</div>
 </th:block>
 
 <th:block th:fragment="bootstrap">
