@@ -40,8 +40,8 @@ public class HomeController {
                                      @RequestParam("file")MultipartFile file){
         if (file.isEmpty()){
             message.setPic(null);
-//            return "messageform";
         }
+
         if(!file.isEmpty()){
             try{
             Map uploadResult = cloudc.upload(file.getBytes(),
@@ -50,9 +50,9 @@ public class HomeController {
             repository.save(message);
         }catch (IOException e){
             e.printStackTrace();
-            return "messageform";
+            return "messageform";}
         }
-        }
+
         if(result.hasErrors()){
             return "messageform";
         }
@@ -71,7 +71,8 @@ public class HomeController {
 
     @RequestMapping("/update/{id}")
     public String updateMessage(@PathVariable("id") long id, Model model){
-        model.addAttribute(repository.findById(id).get());
+        model.addAttribute("message", repository.findById(id).get());
+//        model.addAttribute(repository.findById(id).get());
         return "messageform";
     }
 
@@ -84,6 +85,6 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String deleteMessage(@PathVariable("id") long id){
         repository.deleteById(id);
-        return "list";
+        return "redirect:/";
     }
 }

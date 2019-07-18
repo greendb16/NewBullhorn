@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <th:block th:replace="/base :: MetaLinks">...</th:block>
+    <th:block th:replace="base :: MetaLinks">...</th:block>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+          <!--integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">-->
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
 </head>
+<style>
+    body, html {
+        background-image: url("https://res.cloudinary.com/dv2nrlkn5/image/upload/v1563463585/Suomi-Seuran-uutiskirje-e1560326459204_llz6jx.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        text-align: center;
+    }
+
+    .topnav a {
+        float: none;
+        display: block;
+        padding: 8px;
+        /*background-color: black;*/
+        overflow: hidden;
+        text-align: center;}
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;}
+
+    li {
+        float: none;}
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;}
+
+</style>
 <body>
 <th:block th:replace="/base :: navbar">...</th:block>
 
