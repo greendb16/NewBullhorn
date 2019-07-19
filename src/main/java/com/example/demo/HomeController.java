@@ -59,7 +59,7 @@ public class HomeController {
         Date date = new Date();
 
         try{
-            date = new SimpleDateFormat("yyyy-mm-dd").parse(datePosted);}
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(datePosted);}
 
         catch (Exception e){
             e.printStackTrace();
